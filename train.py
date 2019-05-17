@@ -24,7 +24,7 @@ if __name__ == '__main__':
     options = Object(**dict(
         batch_size=1,
         beta1=0.5,
-        checkpoints_dir='./checkpoints',
+        checkpoints_dir='/content/cyclegan/checkpoints',
         continue_train=False,
         crop_size=256,
         dataroot='/content/cyclegan/datasets/monet2photo',
@@ -33,7 +33,7 @@ if __name__ == '__main__':
         epoch='latest',
         epoch_count=1,
         gan_mode='lsgan',
-        gpu_ids=[],
+        gpu_ids=[0],
         init_gain=0.02,
         init_type='normal',
         input_nc=3,
@@ -47,13 +47,13 @@ if __name__ == '__main__':
         lr_policy='linear',
         max_dataset_size=float('inf'),
         n_layers_D=3,
-        name='cyclegan',
+        name='bleus1',
         ndf=64,
         netD='basic',
         netG='resnet_9blocks',
         ngf=64,
-        niter=100,
-        niter_decay=100,
+        niter=1,
+        niter_decay=0,
         no_dropout=True,
         norm='instance',
         phase='train',
@@ -83,13 +83,15 @@ if __name__ == '__main__':
 
     print('Starting the training...')
     for epoch in range(options.epoch_count, options.niter + options.niter_decay + 1):    # outer loop for different epochs; we save the model by <epoch_count>, <epoch_count>+<save_latest_freq>
-        print('epoch = ', epoch)
         epoch_start_time = time.time()  # timer for entire epoch
         iter_data_time = time.time()    # timer for data loading per iteration
         epoch_iter = 0                  # the number of training iterations in current epoch, reset to 0 every epoch
 
-        print('Running over the dataset...')
+        print('\nRunning over the dataset...')
         for i, data in enumerate(dataset):  # inner loop within one epoch
+            if i > 50:
+                continue
+
             iter_start_time = time.time()  # timer for computation per iteration
             if total_iters % options.print_freq == 0:
                 t_data = iter_start_time - iter_data_time
@@ -97,10 +99,8 @@ if __name__ == '__main__':
             total_iters += options.batch_size
             epoch_iter += options.batch_size
 
-            print('Setting input to model')
             model.set_input(data)         # unpack data from dataset and apply preprocessing
 
-            print('Optimizing parameters')
             model.optimize_parameters()   # calculate loss functions, get gradients, update network weights
 
             # if total_iters % options.display_freq == 0:   # display images on visdom and save images to a HTML file
@@ -108,12 +108,12 @@ if __name__ == '__main__':
             #     model.compute_visuals()
             #     visualizer.display_current_results(model.get_current_visuals(), epoch, save_result)
 
-            if total_iters % options.print_freq == 0:    # print training losses and save logging information to the disk
-                losses = model.get_current_losses()
-                t_comp = (time.time() - iter_start_time) / options.batch_size
-                print_current_losses(epoch, epoch_iter, losses, t_comp, t_data)
-                # if opt.display_id > 0:
-                #     visualizer.plot_current_losses(epoch, float(epoch_iter) / dataset_size, losses)
+            # if total_iters % options.print_freq == 0:    # print training losses and save logging information to the disk
+            #     losses = model.get_current_losses()
+            #     t_comp = (time.time() - iter_start_time) / options.batch_size
+            #     print_current_losses(epoch, epoch_iter, losses, t_comp, t_data)
+            #     if opt.display_id > 0:
+            #         visualizer.plot_current_losses(epoch, float(epoch_iter) / dataset_size, losses)
 
             if total_iters % options.save_latest_freq == 0:   # cache our latest model every <save_latest_freq> iterations
                 print('saving the latest model (epoch %d, total_iters %d)' % (epoch, total_iters))
@@ -122,12 +122,19 @@ if __name__ == '__main__':
 
             iter_data_time = time.time()
 
+        losses = model.get_current_losses()
+        t_comp = (time.time() - iter_start_time) / options.batch_size
+        print_current_losses(epoch, epoch_iter, losses, t_comp, t_data)
+
         print('Saving network...')
-        if epoch % options.save_epoch_freq == 0:              # cache our model every <save_epoch_freq> epochs
-            print('saving the model at the end of epoch %d, iters %d' % (epoch, total_iters))
-            model.save_networks('latest')
-            model.save_networks(epoch)
+        model.save_networks('latest')
+        # if epoch % options.save_epoch_freq == 0:              # cache our model every <save_epoch_freq> epochs
+        #     print('saving the model at the end of epoch %d, iters %d' % (epoch, total_iters))
+        #     model.save_networks('latest')
+        #     model.save_networks(epoch)
 
         print('End of epoch %d / %d \t Time Taken: %d sec' % (epoch, options.niter + options.niter_decay, time.time() - epoch_start_time))
         model.update_learning_rate()                     # update learning rates at the end of every epoch.
+
+    print('\nFinish of training.')
 
