@@ -5,7 +5,7 @@ from PIL import Image
 import random
 
 
-class Dataset(BaseDataset):
+class BothDirectionsDataset(BaseDataset):
     """
     This dataset class can load unaligned/unpaired datasets.
 

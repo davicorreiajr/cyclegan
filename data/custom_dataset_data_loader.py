@@ -1,5 +1,6 @@
 import torch
-from data.dataset import Dataset
+from data.both_directions_dataset import BothDirectionsDataset
+from data.single_direction_dataset import SingleDirectionDataset
 
 
 class CustomDatasetDataLoader():
@@ -12,7 +13,7 @@ class CustomDatasetDataLoader():
         Step 2: create a multi-threaded data loader.
         """
         self.opt = opt
-        self.dataset = Dataset(opt)
+        self.dataset = BothDirectionsDataset(opt) if opt.isTrain else SingleDirectionDataset(opt)
         print("dataset [%s] was created" % type(self.dataset).__name__)
         self.dataloader = torch.utils.data.DataLoader(
             self.dataset,
