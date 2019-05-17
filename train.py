@@ -47,7 +47,7 @@ if __name__ == '__main__':
         lr_policy='linear',
         max_dataset_size=float('inf'),
         n_layers_D=3,
-        name='bleus1',
+        name='bleus',
         ndf=64,
         netD='basic',
         netG='resnet_9blocks',
