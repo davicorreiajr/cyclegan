@@ -54,8 +54,10 @@ if __name__ == '__main__':
         ngf=64,
         niter=1,
         niter_decay=0,
-        no_dropout=True,
+        no_flip=False,
         norm='instance',
+        num_threads=4,
+        output_nc=3,
         phase='train',
         pool_size=50,
         preprocess='resize_and_crop',
@@ -64,10 +66,8 @@ if __name__ == '__main__':
         save_epoch_freq=5,
         save_latest_freq=5000,
         serial_batches=False,
-        no_flip=False,
-        num_threads=4,
-        output_nc=3,
         update_html_freq=1000,
+        use_dropout=False,
         verbose=False,
     ))
 
