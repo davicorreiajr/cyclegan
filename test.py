@@ -80,13 +80,7 @@ if __name__ == '__main__':
     model = TestModel(options)
     model.setup(options)
 
-    # create a website
-    web_dir = os.path.join(options.results_dir, options.name, '%s_%s' % (options.phase, options.epoch))  # define the website directory
-    img_dir = os.path.join(web_dir, 'images')
-    # webpage = html.HTML(web_dir, 'Experiment = %s, Phase = %s, Epoch = %s' % (opt.name, opt.phase, opt.epoch))
-    # test with eval mode. This only affects layers like batchnorm and dropout.
-    # For [pix2pix]: we use batchnorm and dropout in the original pix2pix. You can experiment it with and without eval() mode.
-    # For [CycleGAN]: It should not affect CycleGAN as CycleGAN uses instancenorm without dropout.
+    img_dir = os.path.join(options.results_dir, options.name)
 
     if options.eval:
         model.eval()
@@ -103,5 +97,3 @@ if __name__ == '__main__':
         if i % 5 == 0:  # save images to an HTML file
             print('processing (%04d)-th image... %s' % (i, img_path))
         save_images(img_dir, visuals, img_path, aspect_ratio=options.aspect_ratio, width=options.display_winsize)
-
-    # webpage.save()  # save the HTML

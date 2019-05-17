@@ -6,7 +6,7 @@ echo "Note: available models are apple2orange, orange2apple, summer2winter_yosem
 echo "Specified [$FILE]"
 
 mkdir -p /content/cyclegan//checkpoints/${FILE}_pretrained
-MODEL_FILE=/content/cyclegan//checkpoints/${FILE}_pretrained/latest_net_G.pth
+MODEL_FILE=/content/cyclegan//checkpoints/${FILE}_pretrained/latest_net_G_A.pth
 URL=http://efrosgans.eecs.berkeley.edu/cyclegan/pretrained_models/$FILE.pth
 
 wget -N $URL -O $MODEL_FILE
