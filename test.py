@@ -35,7 +35,7 @@ from util.save_images import save_images
 if __name__ == '__main__':
     options = Object(**dict(
         aspect_ratio=1.0,
-        batch_size=1,
+        batch_size=1,#
         checkpoints_dir='/content/cyclegan/checkpoints',
         crop_size=256,#
         dataroot='/content/cyclegan/datasets/test',#
@@ -65,12 +65,12 @@ if __name__ == '__main__':
         norm='instance',
         ntest=float('inf'),
         num_test=50,
-        num_threads=0,
+        num_threads=0,#
         output_nc=3,
         phase='test',
         preprocess='resize_and_crop',#
         results_dir='/content/cyclegan/results',
-        serial_batches=True,
+        serial_batches=True,#
         suffix='',
         verbose=False
 
