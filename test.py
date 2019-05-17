@@ -28,7 +28,7 @@ See frequently asked questions at: https://github.com/junyanz/pytorch-CycleGAN-a
 """
 import os
 from data.custom_dataset_data_loader import CustomDatasetDataLoader
-from models.cycle_gan_model import CycleGANModel
+from models.test_model import TestModel
 from util.object import Object
 from util.save_images import save_images
 
@@ -78,7 +78,7 @@ if __name__ == '__main__':
 
     dataset = CustomDatasetDataLoader(options)
 
-    model = CycleGANModel(options)
+    model = TestModel(options)
     model.setup(options)
 
     # create a website
