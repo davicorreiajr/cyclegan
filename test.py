@@ -60,7 +60,6 @@ if __name__ == '__main__':
         netD='basic',
         netG='resnet_9blocks',
         ngf=64,
-        no_dropout=True,
         no_flip=True,#
         norm='instance',
         ntest=float('inf'),
@@ -72,8 +71,8 @@ if __name__ == '__main__':
         results_dir='/content/cyclegan/results',
         serial_batches=True,#
         suffix='',
-        verbose=False
-
+        verbose=False,
+        use_dropout=False,
     ))
 
     dataset = CustomDatasetDataLoader(options)
