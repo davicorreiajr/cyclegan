@@ -47,7 +47,7 @@ class TestModel(BaseModel):
 
         # assigns the model to self.netG_[suffix] so that it can be loaded
         # please see <BaseModel.load_networks>
-        setattr(self, 'netG' + opt.model_suffix, self.netG)  # store netG in self.
+        setattr(self, 'netG_A' + opt.model_suffix, self.netG)  # store netG in self.
 
     def set_input(self, input):
         """Unpack input data from the dataloader and perform necessary pre-processing steps.
