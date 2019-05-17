@@ -1,8 +1,8 @@
 import os
 import ntpath
-from . import tensor2image
 from scipy.misc import imresize
 from PIL import Image
+from util.tensor2image import tensor2image
 
 
 def save_images(image_dir, visuals, image_path, aspect_ratio=1.0, width=256):

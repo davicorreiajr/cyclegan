@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38e041fc-aa06-43e0-83d9-76cc148e5b15" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/save_images.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/save_images.py" afterDir="false" />
     </list>
     <ignored path=".idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,9 +13,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47138768">
+    <splitter split-orientation="horizontal" split-proportion="0.59942776">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/train.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="278">
+                  <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/data/image_folder.py">
               <provider selected="true" editor-type-id="text-editor">
@@ -28,8 +37,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/data/dataset.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="270">
-                  <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
+                <state relative-caret-position="15">
+                  <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
                   <folding>
                     <element signature="e#0#14#0" expanded="true" />
                   </folding>
@@ -50,33 +59,12 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/train.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="91" column="22" lean-forward="true" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/util/save_images.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="305">
-                  <caret line="27" column="34" lean-forward="true" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
+                <state relative-caret-position="243">
+                  <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/util/tensor2image.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -89,8 +77,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/test.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="344">
-                  <caret line="115" column="53" selection-start-line="115" selection-start-column="53" selection-end-line="115" selection-end-column="53" />
+                <state relative-caret-position="648">
+                  <caret line="118" column="15" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="15" />
                   <folding>
                     <element signature="e#1709#1718#0" expanded="true" />
                   </folding>
@@ -98,11 +86,23 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/data/custom_dataset_data_loader.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+                  <folding>
+                    <element signature="e#0#12#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="45">
-                  <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+                <state relative-caret-position="60">
+                  <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -116,23 +116,14 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/util/tensor2image.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="60">
-                  <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+                  <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/util/save_images.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="240">
-                  <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
                 </state>
               </provider>
             </entry>
@@ -187,9 +178,9 @@
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/util/tensor2image.py" />
         <option value="$PROJECT_DIR$/util/save_images" />
-        <option value="$PROJECT_DIR$/util/save_images.py" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/util/save_images.py" />
       </list>
     </option>
   </component>
@@ -203,13 +194,97 @@
       <showMembers Scope="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="cyclegan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cyclegan" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cyclegan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cyclegan" type="462c0819:PsiDirectoryNode" />
+              <item name="train.py" type="8704e2dd:PyFileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="cyclegan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Aalto/deep-learning/project/cyclegan" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="cyclegan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Aalto/deep-learning/project/cyclegan" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="data" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cyclegan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Aalto/deep-learning/project/cyclegan" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="models" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cyclegan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Aalto/deep-learning/project/cyclegan" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="models" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="base_model.py" type="8704e2dd:PyFileNode" />
+            </path>
+            <path>
+              <item name="cyclegan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Aalto/deep-learning/project/cyclegan" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="models" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="base_model.py" type="8704e2dd:PyFileNode" />
+              <item name="BaseModel" type="dd8bbb05:PyElementNode" />
+            </path>
+            <path>
+              <item name="cyclegan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Aalto/deep-learning/project/cyclegan" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="models" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="cycle_gan_model.py" type="8704e2dd:PyFileNode" />
+            </path>
+            <path>
+              <item name="cyclegan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Aalto/deep-learning/project/cyclegan" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="models" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="cycle_gan_model.py" type="8704e2dd:PyFileNode" />
+              <item name="CycleGANModel" type="dd8bbb05:PyElementNode" />
+            </path>
+            <path>
+              <item name="cyclegan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Aalto/deep-learning/project/cyclegan" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="util" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="cyclegan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Aalto/deep-learning/project/cyclegan" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="util" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="save_images.py" type="8704e2dd:PyFileNode" />
+            </path>
+            <path>
+              <item name="cyclegan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/Documents/Aalto/deep-learning/project/cyclegan" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="util" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="tensor2image.py" type="8704e2dd:PyFileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
@@ -273,15 +348,16 @@
       <workItem from="1557993379444" duration="2048000" />
       <workItem from="1557995448575" duration="6124000" />
       <workItem from="1558030666395" duration="5691000" />
-      <workItem from="1558074242278" duration="922000" />
+      <workItem from="1558074242278" duration="2116000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14785000" />
+    <option name="totallyTimeSpent" value="15979000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.18884121" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24964234" />
@@ -297,7 +373,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3192771" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3192771" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -397,16 +473,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/custom_dataset_data_loader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/base_model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
@@ -431,16 +497,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/dataset.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="22" column="65" selection-start-line="22" selection-start-column="65" selection-end-line="22" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/cycle_gan_model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="775">
@@ -458,10 +514,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/custom_dataset_data_loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="26" lean-forward="true" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/dataset.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="118" column="15" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="15" />
+          <folding>
+            <element signature="e#1709#1718#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/util/tensor2image.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -470,32 +570,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/util/save_images.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="115" column="53" selection-start-line="115" selection-start-column="53" selection-end-line="115" selection-end-column="53" />
+        <state relative-caret-position="243">
+          <caret line="21" column="42" lean-forward="true" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
           <folding>
-            <element signature="e#1709#1718#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="91" column="22" lean-forward="true" selection-start-line="91" selection-start-column="22" selection-end-line="91" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="16" lean-forward="true" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
         </state>
       </provider>
     </entry>
