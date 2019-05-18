@@ -32,46 +32,9 @@ from models.test_model import TestModel
 from util.object import Object
 from util.save_images import save_images
 
-if __name__ == '__main__':
-    options = Object(**dict(
-        aspect_ratio=1.0,
-        batch_size=1,
-        checkpoints_dir='./checkpoints',
-        crop_size=256,
-        dataroot='./datasets/test',
-        dataset_mode='single',
-        display_winsize=256,
-        eval=False,
-        gpu_ids=[],
-        init_gain=0.02,
-        init_type='normal',
-        input_nc=3,#
-        isTrain=False,
-        load_iter=0,
-        load_size=256,#
-        # max_dataset_size=float('inf'),
-        model='test',
-        model_suffix='',
-        n_layers_D=3,
-        name='bleus',
-        ndf=64,
-        netD='basic',
-        netG='resnet_9blocks',
-        ngf=64,
-        no_flip=True,#
-        norm='instance',
-        ntest=float('inf'),
-        num_test=50,
-        num_threads=0,#
-        output_nc=3,
-        # phase='test',
-        preprocess='resize_and_crop',
-        results_dir='./results',
-        # serial_batches=True,#
-        suffix='',
-        verbose=False,
-        use_dropout=False,
-    ))
+
+def run(options_raw):
+    options = Object(**options_raw)
 
     dataset = CustomDatasetDataLoader(options)
 
@@ -80,18 +43,44 @@ if __name__ == '__main__':
 
     img_dir = os.path.join(options.results_dir, options.name)
 
-    if options.eval:
-        model.eval()
-
     for i, data in enumerate(dataset):
-        if i >= options.num_test:
+        if i >= options.max_image_iterations:
             break
 
-        model.set_input(data)  # unpack data from data loader
-        model.test()           # run inference
+        model.set_input(data)
+        model.test()
 
-        visuals = model.get_current_visuals()  # get image results
-        img_path = model.get_image_paths()     # get image paths
-        if i % 5 == 0:  # save images to an HTML file
-            print('processing (%04d)-th image... %s' % (i, img_path))
-        save_images(img_dir, visuals, img_path, aspect_ratio=options.aspect_ratio, width=options.display_winsize)
+        visuals = model.get_current_visuals()
+        img_path = model.get_image_paths()
+
+        print('processing (%04d)-th image... %s' % (i, img_path))
+        save_images(img_dir, visuals, img_path)
+
+if __name__ == '__main__':
+    options_raw = dict(
+        batch_size=1,
+        checkpoints_dir='./checkpoints',
+        crop_size=256,
+        dataroot='./datasets/test',
+        gpu_ids=[0],
+        init_gain=0.02,
+        init_type='normal',
+        input_nc=3,
+        isTrain=False,
+        load_size=256,
+        n_layers_D=3,
+        name='bleus',
+        ndf=64,
+        ngf=64,
+        no_flip=True,
+        norm='instance',
+        max_image_iterations=50,
+        num_threads=0,
+        output_nc=3,
+        preprocess='resize_and_crop',
+        results_dir='./results',
+        use_dropout=False,
+        verbose=False,
+    )
+
+    run(options_raw)
