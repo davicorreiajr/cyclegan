@@ -80,7 +80,6 @@ if __name__ == '__main__':
     print("model [%s] was created" % type(model).__name__)
 
     model.setup(options)
-    total_iters = 0
 
     training_start_time = time.time()
     print('Starting the training...\n')
@@ -93,7 +92,6 @@ if __name__ == '__main__':
             # if i > 50:
             #     continue
 
-            total_iters += options.batch_size
             epoch_iter += options.batch_size
 
             # unpack data from dataset and apply preprocessing
