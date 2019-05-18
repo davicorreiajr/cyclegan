@@ -66,7 +66,7 @@ if __name__ == '__main__':
         save_by_iter=False,
         save_epoch_freq=5,
         save_latest_freq=5000,
-        serial_batches=False,
+        # serial_batches=False,
         update_html_freq=1000,
         use_dropout=False,
         verbose=False,

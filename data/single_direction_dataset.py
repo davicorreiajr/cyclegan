@@ -17,7 +17,7 @@ class SingleDirectionDataset(BaseDataset):
         """
         BaseDataset.__init__(self, opt)
         self.A_paths = sorted(make_dataset(opt.dataroot))
-        self.transform = get_transform(opt, grayscale=(self.opt.input_nc == 1))
+        self.transform = get_transform(opt)
 
     def __getitem__(self, index):
         """Return a data point and its metadata information.

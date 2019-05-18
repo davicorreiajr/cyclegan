@@ -69,7 +69,7 @@ if __name__ == '__main__':
         # phase='test',
         preprocess='resize_and_crop',#
         results_dir='/content/cyclegan/results',
-        serial_batches=True,#
+        # serial_batches=True,#
         suffix='',
         verbose=False,
         use_dropout=False,
