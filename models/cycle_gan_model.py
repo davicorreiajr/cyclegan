@@ -24,10 +24,10 @@ class CycleGANModel(BaseModel):
         """
         BaseModel.__init__(self, opt)
 
-        # specify the training losses you want to print out. The training/test scripts will call <BaseModel.get_current_losses>
+        # specify the training losses you want to print out.
         self.loss_names = ['D_A', 'G_A', 'cycle_A', 'idt_A', 'D_B', 'G_B', 'cycle_B', 'idt_B']
 
-        # specify the images you want to save/display. The training/test scripts will call <BaseModel.get_current_visuals>
+        # specify the images you want to save/display.
         visual_names_A = ['real_A', 'fake_B', 'rec_A']
         visual_names_B = ['real_B', 'fake_A', 'rec_B']
 
@@ -39,7 +39,7 @@ class CycleGANModel(BaseModel):
         # combine visualizations for A and B
         self.visual_names = visual_names_A + visual_names_B
 
-        # specify the models you want to save to the disk. The training/test scripts will call <BaseModel.save_networks> and <BaseModel.load_networks>.
+        # specify the models you want to save to the disk.
         if self.isTrain:
             self.model_names = ['G_A', 'G_B', 'D_A', 'D_B']
         else:
