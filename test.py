@@ -55,7 +55,7 @@ if __name__ == '__main__':
         model='test',
         model_suffix='',
         n_layers_D=3,
-        name='style_vangogh_pretrained',
+        name='bleus',
         ndf=64,
         netD='basic',
         netG='resnet_9blocks',
@@ -67,7 +67,7 @@ if __name__ == '__main__':
         num_threads=0,#
         output_nc=3,
         # phase='test',
-        preprocess='resize_and_crop',#
+        preprocess='none',#
         results_dir='/content/cyclegan/results',
         # serial_batches=True,#
         suffix='',
