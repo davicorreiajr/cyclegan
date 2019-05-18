@@ -113,7 +113,7 @@ if __name__ == '__main__':
         # phase='train',
         pool_size=50,
         preprocess='resize_and_crop',
-        print_freq=10,
+        print_freq=100,
         save_by_iter=False,
         save_epoch_freq=5,
         save_latest_freq=5000,
