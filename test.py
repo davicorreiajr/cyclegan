@@ -35,14 +35,12 @@ from util.save_images import save_images
 if __name__ == '__main__':
     options = Object(**dict(
         aspect_ratio=1.0,
-        batch_size=1,#
+        batch_size=1,
         checkpoints_dir='./checkpoints',
-        crop_size=256,#
-        dataroot='./datasets/test',#
+        crop_size=256,
+        dataroot='./datasets/test',
         dataset_mode='single',
-        # direction='AtoB',
         display_winsize=256,
-        epoch='latest',
         eval=False,
         gpu_ids=[],
         init_gain=0.02,
