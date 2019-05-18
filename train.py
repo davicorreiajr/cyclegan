@@ -73,7 +73,7 @@ def run(options_raw):
 
 if __name__ == '__main__':
     options_raw = dict(
-        batch_size=1,
+        batch_size=16,
         beta1=0.5,
         checkpoints_dir='./checkpoints',
         crop_size=256,
