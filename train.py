@@ -46,6 +46,7 @@ if __name__ == '__main__':
         load_size=286,
         lr=0.0002,
         lr_policy='linear',
+        max_image_iterations=999999999,
         max_dataset_size=float('inf'),
         n_layers_D=3,
         name='bleus',
@@ -94,8 +95,8 @@ if __name__ == '__main__':
 
         print('Running over the dataset...')
         for i, data in enumerate(dataset):  # inner loop within one epoch
-            # if i > 50:
-            #     continue
+            if i > options.max_image_iterations:
+                continue
 
             epoch_iter += options.batch_size
 
