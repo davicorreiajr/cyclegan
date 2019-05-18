@@ -36,9 +36,9 @@ if __name__ == '__main__':
     options = Object(**dict(
         aspect_ratio=1.0,
         batch_size=1,#
-        checkpoints_dir='/content/cyclegan/checkpoints',
+        checkpoints_dir='./checkpoints',
         crop_size=256,#
-        dataroot='/content/cyclegan/datasets/test',#
+        dataroot='./datasets/test',#
         dataset_mode='single',
         # direction='AtoB',
         display_winsize=256,
@@ -68,7 +68,7 @@ if __name__ == '__main__':
         output_nc=3,
         # phase='test',
         preprocess='none',#
-        results_dir='/content/cyclegan/results',
+        results_dir='./results',
         # serial_batches=True,#
         suffix='',
         verbose=False,

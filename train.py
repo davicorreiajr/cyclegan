@@ -25,10 +25,10 @@ if __name__ == '__main__':
     options_raw = dict(
         batch_size=1,
         beta1=0.5,
-        checkpoints_dir='/content/cyclegan/checkpoints',
+        checkpoints_dir='./checkpoints',
         continue_train=False,
         crop_size=256,
-        dataroot='/content/cyclegan/datasets/monet2photo',
+        dataroot='./datasets/monet2photo',
         # direction='AtoB',
         display_freq=400,
         epoch='latest',
