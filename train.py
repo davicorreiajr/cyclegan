@@ -28,7 +28,7 @@ if __name__ == '__main__':
         checkpoints_dir='./checkpoints',
         continue_train=False,
         crop_size=256,
-        dataroot='./datasets/monet2photo',
+        dataroot='./datasets/vangogh2photo',
         # direction='AtoB',
         display_freq=400,
         epoch='latest',
