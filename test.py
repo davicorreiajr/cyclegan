@@ -77,7 +77,7 @@ if __name__ == '__main__':
         max_image_iterations=50,
         num_threads=0,
         output_nc=3,
-        preprocess='resize_and_crop',
+        preprocess='none',
         results_dir='./results',
         use_dropout=False,
         verbose=False,
