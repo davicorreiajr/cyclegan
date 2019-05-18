@@ -21,13 +21,13 @@ class TestModel(BaseModel):
         # specify the images you want to save/display. The training/test scripts  will call <BaseModel.get_current_visuals>
         self.visual_names = ['real_A', 'fake_B']
         # specify the models you want to save to the disk. The training/test scripts will call <BaseModel.save_networks> and <BaseModel.load_networks>
-        self.model_names = ['G_A' + opt.model_suffix]  # only generator is needed.
+        self.model_names = ['G_B' + opt.model_suffix]  # only generator is needed.
         self.netG = networks.define_G(opt.input_nc, opt.output_nc, opt.ngf, opt.norm,
                                       opt.use_dropout, opt.init_type, opt.init_gain, self.gpu_ids)
 
         # assigns the model to self.netG_[suffix] so that it can be loaded
         # please see <BaseModel.load_networks>
-        setattr(self, 'netG_A' + opt.model_suffix, self.netG)  # store netG in self.
+        setattr(self, 'netG_B' + opt.model_suffix, self.netG)  # store netG in self.
 
     def set_input(self, input):
         """Unpack input data from the dataloader and perform necessary pre-processing steps.
