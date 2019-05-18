@@ -4,7 +4,7 @@ from models.cycle_gan_model import CycleGANModel
 from util.object import Object
 
 
-def print_current_losses(epoch, iters, losses, t_comp, t_data):
+def print_current_losses(epoch, iters, losses):
     """print current losses on console
 
     Parameters:
@@ -14,11 +14,12 @@ def print_current_losses(epoch, iters, losses, t_comp, t_data):
         t_comp (float) -- computational time per data point (normalized by batch_size)
         t_data (float) -- data loading time per data point (normalized by batch_size)
     """
-    message = '(epoch: %d, iters: %d, time: %.3f, data: %.3f) ' % (epoch, iters, t_comp, t_data)
+    message = '(epoch: %d, iters: %d) ' % (epoch, iters)
     for k, v in losses.items():
         message += '%s: %.3f ' % (k, v)
 
     print(message)  # print the message
+
 
 if __name__ == '__main__':
     options = Object(**dict(
@@ -81,60 +82,33 @@ if __name__ == '__main__':
     model.setup(options)
     total_iters = 0
 
-    print('Starting the training...')
-    for epoch in range(options.epoch_count, options.niter + options.niter_decay + 1):    # outer loop for different epochs; we save the model by <epoch_count>, <epoch_count>+<save_latest_freq>
-        epoch_start_time = time.time()  # timer for entire epoch
-        iter_data_time = time.time()    # timer for data loading per iteration
-        epoch_iter = 0                  # the number of training iterations in current epoch, reset to 0 every epoch
+    training_start_time = time.time()
+    print('Starting the training...\n')
+    for epoch in range(options.epoch_count, options.niter + options.niter_decay + 1):
+        epoch_start_time = time.time()
+        epoch_iter = 0
 
-        print('\nRunning over the dataset...')
+        print('Running over the dataset...')
         for i, data in enumerate(dataset):  # inner loop within one epoch
-            if i > 50:
-                continue
+            # if i > 50:
+            #     continue
 
-            iter_start_time = time.time()  # timer for computation per iteration
-            if total_iters % options.print_freq == 0:
-                t_data = iter_start_time - iter_data_time
-            # visualizer.reset()
             total_iters += options.batch_size
             epoch_iter += options.batch_size
 
-            model.set_input(data)         # unpack data from dataset and apply preprocessing
-
-            model.optimize_parameters()   # calculate loss functions, get gradients, update network weights
-
-            # if total_iters % options.display_freq == 0:   # display images on visdom and save images to a HTML file
-            #     save_result = total_iters % options.update_html_freq == 0
-            #     model.compute_visuals()
-            #     visualizer.display_current_results(model.get_current_visuals(), epoch, save_result)
-
-            # if total_iters % options.print_freq == 0:    # print training losses and save logging information to the disk
-            #     losses = model.get_current_losses()
-            #     t_comp = (time.time() - iter_start_time) / options.batch_size
-            #     print_current_losses(epoch, epoch_iter, losses, t_comp, t_data)
-            #     if opt.display_id > 0:
-            #         visualizer.plot_current_losses(epoch, float(epoch_iter) / dataset_size, losses)
-
-            if total_iters % options.save_latest_freq == 0:   # cache our latest model every <save_latest_freq> iterations
-                print('saving the latest model (epoch %d, total_iters %d)' % (epoch, total_iters))
-                save_suffix = 'iter_%d' % total_iters if options.save_by_iter else 'latest'
-                model.save_networks(save_suffix)
-
-            iter_data_time = time.time()
+            # unpack data from dataset and apply preprocessing
+            model.set_input(data)
+            # calculate loss functions, get gradients, update network weights
+            model.optimize_parameters()
 
         losses = model.get_current_losses()
-        t_comp = (time.time() - iter_start_time) / options.batch_size
-        print_current_losses(epoch, epoch_iter, losses, t_comp, t_data)
+        print_current_losses(epoch, epoch_iter, losses)
 
         print('Saving network...')
         model.save_networks('latest')
-        # if epoch % options.save_epoch_freq == 0:              # cache our model every <save_epoch_freq> epochs
-        #     print('saving the model at the end of epoch %d, iters %d' % (epoch, total_iters))
-        #     model.save_networks('latest')
-        #     model.save_networks(epoch)
-
         print('End of epoch %d / %d \t Time Taken: %d sec' % (epoch, options.niter + options.niter_decay, time.time() - epoch_start_time))
-        model.update_learning_rate()                     # update learning rates at the end of every epoch.
+        # update learning rates at the end of every epoch.
+        model.update_learning_rate()
 
-    print('\nFinish of training.')
+    print('\nFinish of training in ', time.time() - training_start_time)
 
