@@ -62,7 +62,7 @@ if __name__ == '__main__':
         phase='train',
         pool_size=50,
         preprocess='resize_and_crop',
-        print_freq=100,
+        print_freq=50,
         save_by_iter=False,
         save_epoch_freq=5,
         save_latest_freq=5000,
@@ -100,6 +100,9 @@ if __name__ == '__main__':
             model.set_input(data)
             # calculate loss functions, get gradients, update network weights
             model.optimize_parameters()
+
+            if i % options.print_freq == 0:
+                print('Finish %d-th image' % i)
 
         losses = model.get_current_losses()
         print_current_losses(epoch, epoch_iter, losses)
