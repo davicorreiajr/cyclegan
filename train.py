@@ -18,59 +18,10 @@ def print_current_losses(epoch, iters, losses):
     for k, v in losses.items():
         message += '%s: %.3f ' % (k, v)
 
-    print(message)  # print the message
+    print(message)
+
 
 def run(options_raw):
-    # options_raw = dict(
-    #     batch_size=1,
-    #     beta1=0.5,
-    #     checkpoints_dir='./checkpoints',
-    #     continue_train=False,
-    #     crop_size=256,
-    #     dataroot='./datasets/vangogh2photo',
-    #     # direction='AtoB',
-    #     display_freq=400,
-    #     epoch='latest',
-    #     epoch_count=1,
-    #     gan_mode='lsgan',
-    #     gpu_ids=[0],
-    #     init_gain=0.02,
-    #     init_type='normal',
-    #     input_nc=3,
-    #     isTrain=True,
-    #     lambda_A=10.0,
-    #     lambda_B=10.0,
-    #     lambda_identity=0.5,
-    #     load_iter=0,
-    #     load_size=286,
-    #     lr=0.0002,
-    #     lr_policy='linear',
-    #     max_image_iterations=999999999,
-    #     max_dataset_size=float('inf'),
-    #     n_layers_D=3,
-    #     name='bleus',
-    #     ndf=64,
-    #     netD='basic',
-    #     netG='resnet_9blocks',
-    #     ngf=64,
-    #     niter=100,
-    #     niter_decay=100,
-    #     no_flip=False,
-    #     norm='instance',
-    #     num_threads=4,
-    #     output_nc=3,
-    #     # phase='train',
-    #     pool_size=50,
-    #     preprocess='resize_and_crop',
-    #     print_freq=100,
-    #     save_by_iter=False,
-    #     save_epoch_freq=5,
-    #     save_latest_freq=5000,
-    #     # serial_batches=False,
-    #     update_html_freq=1000,
-    #     use_dropout=False,
-    #     verbose=False,
-    # )
     options = Object(**options_raw)
     print('####### Options ####### ')
     for key in list(options_raw.keys()):
