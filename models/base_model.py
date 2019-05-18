@@ -6,15 +6,7 @@ from . import networks
 
 
 class BaseModel(ABC):
-    """This class is an abstract base class (ABC) for models.
-    To create a subclass, you need to implement the following five functions:
-        -- <__init__>:                      initialize the class; first call BaseModel.__init__(self, opt).
-        -- <set_input>:                     unpack data from dataset and apply preprocessing.
-        -- <forward>:                       produce intermediate results.
-        -- <optimize_parameters>:           calculate losses, gradients, and update network weights.
-        -- <modify_commandline_options>:    (optionally) add model-specific options and set default options.
-    """
-
+    """This class is an abstract base class (ABC) for models."""
     def __init__(self, opt):
         """Initialize the BaseModel class.
 
@@ -22,7 +14,7 @@ class BaseModel(ABC):
             opt (Option class)-- stores all the experiment flags; needs to be a subclass of BaseOptions
 
         When creating your custom class, you need to implement your own initialization.
-        In this fucntion, you should first call <BaseModel.__init__(self, opt)>
+        In this function, you should first call <BaseModel.__init__(self, opt)>
         Then, you need to define four lists:
             -- self.loss_names (str list):          specify the training losses that you want to plot and save.
             -- self.model_names (str list):         specify the images that you want to display and save.
@@ -32,16 +24,20 @@ class BaseModel(ABC):
         self.opt = opt
         self.gpu_ids = opt.gpu_ids
         self.isTrain = opt.isTrain
-        self.device = torch.device('cuda:{}'.format(self.gpu_ids[0])) if self.gpu_ids else torch.device('cpu')  # get device name: CPU or GPU
-        self.save_dir = os.path.join(opt.checkpoints_dir, opt.name)  # save all the checkpoints to save_dir
-        if opt.preprocess != 'scale_width':  # with [scale_width], input images might have different sizes, which hurts the performance of cudnn.benchmark.
+        self.device = torch.device('cuda:{}'.format(self.gpu_ids[0])) if self.gpu_ids else torch.device('cpu')
+        self.save_dir = os.path.join(opt.checkpoints_dir, opt.name)
+
+        # with [scale_width], input images might have different sizes, which hurts the performance of cudnn.benchmark.
+        if opt.preprocess != 'scale_width':
             torch.backends.cudnn.benchmark = True
+
         self.loss_names = []
         self.model_names = []
         self.visual_names = []
         self.optimizers = []
         self.image_paths = []
-        self.metric = 0  # used for learning rate policy 'plateau'
+        # used for learning rate policy 'plateau'
+        self.metric = 0
 
     @abstractmethod
     def set_input(self, input):
@@ -90,11 +86,6 @@ class BaseModel(ABC):
         """
         with torch.no_grad():
             self.forward()
-            self.compute_visuals()
-
-    def compute_visuals(self):
-        """Calculate additional output images for visdom and HTML visualization"""
-        pass
 
     def get_image_paths(self):
         """ Return image paths that are used to load current data"""
@@ -112,7 +103,7 @@ class BaseModel(ABC):
         print('learning rate = %.7f' % lr)
 
     def get_current_visuals(self):
-        """Return visualization images. train.py will display these images with visdom, and save the images to a HTML"""
+        """Return visualization images."""
         visual_ret = OrderedDict()
         for name in self.visual_names:
             if isinstance(name, str):
@@ -129,7 +120,6 @@ class BaseModel(ABC):
 
     def save_networks(self):
         """Save all the networks to the disk."""
-
         for name in self.model_names:
             if isinstance(name, str):
                 save_filename = 'net_%s.pth' % name
