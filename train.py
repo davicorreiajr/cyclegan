@@ -92,7 +92,7 @@ if __name__ == '__main__':
         load_size=286,
         lr=0.0002,
         lr_policy='linear',
-        max_image_iterations=800,
+        max_image_iterations=10,
         max_dataset_size=float('inf'),
         n_layers_D=3,
         name='bleus',
