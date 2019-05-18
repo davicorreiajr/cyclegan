@@ -44,7 +44,7 @@ def run(options_raw):
         epoch_iter = 0
 
         print('Running over the dataset...')
-        for i, data in enumerate(dataset):  # inner loop within one epoch
+        for i, data in enumerate(dataset):
             if i > options.max_image_iterations:
                 continue
 
