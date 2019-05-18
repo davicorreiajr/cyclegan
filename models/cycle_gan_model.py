@@ -31,16 +31,19 @@ class CycleGANModel(BaseModel):
         visual_names_A = ['real_A', 'fake_B', 'rec_A']
         visual_names_B = ['real_B', 'fake_A', 'rec_B']
 
-        if self.isTrain and self.opt.lambda_identity > 0.0:  # if identity loss is used, we also visualize idt_B=G_A(B) ad idt_A=G_A(B)
+        # if identity loss is used, we also visualize idt_B=G_A(B) ad idt_A=G_A(B)
+        if self.isTrain and self.opt.lambda_identity > 0.0:
             visual_names_A.append('idt_B')
             visual_names_B.append('idt_A')
 
-        self.visual_names = visual_names_A + visual_names_B  # combine visualizations for A and B
+        # combine visualizations for A and B
+        self.visual_names = visual_names_A + visual_names_B
 
         # specify the models you want to save to the disk. The training/test scripts will call <BaseModel.save_networks> and <BaseModel.load_networks>.
         if self.isTrain:
             self.model_names = ['G_A', 'G_B', 'D_A', 'D_B']
-        else:  # during test time, only load Gs
+        else:
+            # during test time, only load Gs
             self.model_names = ['G_A', 'G_B']
 
         # define networks (both Generators and discriminators)
