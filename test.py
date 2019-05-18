@@ -55,7 +55,7 @@ if __name__ == '__main__':
         model='test',
         model_suffix='',
         n_layers_D=3,
-        name='style_vangogh_pretrained',
+        name='bleus',
         ndf=64,
         netD='basic',
         netG='resnet_9blocks',
