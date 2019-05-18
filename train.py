@@ -94,8 +94,8 @@ if __name__ == '__main__':
 
         print('Running over the dataset...')
         for i, data in enumerate(dataset):  # inner loop within one epoch
-            if i > 50:
-                continue
+            # if i > 50:
+            #     continue
 
             epoch_iter += options.batch_size
 
