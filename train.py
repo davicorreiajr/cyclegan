@@ -62,7 +62,7 @@ def run(options_raw):
         print_current_losses(epoch, epoch_iter, losses)
 
         print('Saving network...')
-        model.save_networks('latest')
+        model.save_networks()
         print('End of epoch %d / %d \t Time Taken: %d sec' % (
         epoch, options.niter + options.niter_decay, time.time() - epoch_start_time))
         # update learning rates at the end of every epoch.
