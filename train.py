@@ -22,7 +22,7 @@ def print_current_losses(epoch, iters, losses):
 
 
 if __name__ == '__main__':
-    options = Object(**dict(
+    options_raw = dict(
         batch_size=1,
         beta1=0.5,
         checkpoints_dir='/content/cyclegan/checkpoints',
@@ -70,8 +70,12 @@ if __name__ == '__main__':
         update_html_freq=1000,
         use_dropout=False,
         verbose=False,
-    ))
-    print('Options = ', options)
+    )
+    options = Object(**options_raw)
+    print('####### Options ####### ')
+    for key in list(options_raw.keys()):
+        print('%s = %s' % (key, options_raw[key]))
+    print('\n\n')
 
     dataset = CustomDatasetDataLoader(options)
     dataset_size = len(dataset)
