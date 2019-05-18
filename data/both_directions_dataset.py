@@ -22,8 +22,8 @@ class BothDirectionsDataset(BaseDataset):
         BaseDataset.__init__(self, opt)
 
         # create paths '/path/to/data/trainA' and '/path/to/data/trainB'
-        self.dir_A = os.path.join(opt.dataroot, 'train_A')
-        self.dir_B = os.path.join(opt.dataroot, 'train_B')
+        self.dir_A = os.path.join(opt.dataroot, 'trainA')
+        self.dir_B = os.path.join(opt.dataroot, 'trainB')
 
         # load images from '/path/to/data/trainA' and '/path/to/data/trainB'
         self.A_paths = sorted(make_dataset(self.dir_A))
