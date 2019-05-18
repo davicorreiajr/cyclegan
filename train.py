@@ -53,8 +53,8 @@ if __name__ == '__main__':
         netD='basic',
         netG='resnet_9blocks',
         ngf=64,
-        niter=100,
-        niter_decay=100,
+        niter=5,
+        niter_decay=5,
         no_flip=False,
         norm='instance',
         num_threads=4,
@@ -62,7 +62,7 @@ if __name__ == '__main__':
         # phase='train',
         pool_size=50,
         preprocess='resize_and_crop',
-        print_freq=100,
+        print_freq=10,
         save_by_iter=False,
         save_epoch_freq=5,
         save_latest_freq=5000,
@@ -71,6 +71,7 @@ if __name__ == '__main__':
         use_dropout=False,
         verbose=False,
     ))
+    print('Options = ', options)
 
     dataset = CustomDatasetDataLoader(options)
     dataset_size = len(dataset)
@@ -89,8 +90,8 @@ if __name__ == '__main__':
 
         print('Running over the dataset...')
         for i, data in enumerate(dataset):  # inner loop within one epoch
-            # if i > 50:
-            #     continue
+            if i > 50:
+                continue
 
             epoch_iter += options.batch_size
 
