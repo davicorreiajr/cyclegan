@@ -8,26 +8,6 @@ class TestModel(BaseModel):
 
     See the test instruction for more details.
     """
-    @staticmethod
-    def modify_commandline_options(parser, is_train=True):
-        """Add new dataset-specific options, and rewrite default values for existing options.
-
-        Parameters:
-            parser          -- original option parser
-            is_train (bool) -- whether training phase or test phase. You can use this flag to add training-specific or test-specific options.
-
-        Returns:
-            the modified parser.
-
-        The model can only be used during test time. It requires '--dataset_mode single'.
-        You need to specify the network using the option '--model_suffix'.
-        """
-        assert not is_train, 'TestModel cannot be used during training time'
-        parser.set_defaults(dataset_mode='single')
-        parser.add_argument('--model_suffix', type=str, default='', help='In checkpoints_dir, [epoch]_net_G[model_suffix].pth will be loaded as the generator.')
-
-        return parser
-
     def __init__(self, opt):
         """Initialize the pix2pix class.
 
