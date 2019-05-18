@@ -66,7 +66,7 @@ if __name__ == '__main__':
         num_test=50,
         num_threads=0,#
         output_nc=3,
-        phase='test',
+        # phase='test',
         preprocess='resize_and_crop',#
         results_dir='/content/cyclegan/results',
         serial_batches=True,#
