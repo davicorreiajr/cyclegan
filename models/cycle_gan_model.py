@@ -109,11 +109,11 @@ class CycleGANModel(BaseModel):
         # return loss_D
 
         real_prediction = netD(real)
-        target_real = torch.tensor(1.0).expand_as(real_prediction)
+        target_real = torch.tensor(1.0).expand_as(real_prediction).to(self.device)
         loss_real = self.criterionGAN(real_prediction, target_real)
 
         fake_prediction = netD(fake)
-        target_fake = torch.tensor(0.0).expand_as(fake_prediction)
+        target_fake = torch.tensor(0.0).expand_as(fake_prediction).to(self.device)
         loss_fake = self.criterionGAN(fake_prediction, target_fake)
 
         loss = (loss_real + loss_fake) * 0.5
