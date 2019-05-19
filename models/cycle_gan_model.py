@@ -172,7 +172,7 @@ class CycleGANModel(BaseModel):
 
         # GAN loss D_A(G_A(A))
         fake_prediction_D_A = self.netD_A(self.fake_B)
-        target_fake_A = torch.tensor(1.0).expand_as(fake_prediction_D_A)
+        target_fake_A = torch.tensor(1.0).expand_as(fake_prediction_D_A).to(self.device)
         self.loss_G_A = self.criterionGAN(fake_prediction_D_A, target_fake_A)
 
         # GAN loss D_B(G_B(B))
