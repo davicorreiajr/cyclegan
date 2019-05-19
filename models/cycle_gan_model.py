@@ -25,7 +25,7 @@ class CycleGANModel(BaseModel):
         BaseModel.__init__(self, opt)
 
         # specify the training losses you want to print out.
-        self.loss_names = ['D_A', 'G_A', 'cycle_A', 'idt_A', 'D_B', 'G_B', 'cycle_B', 'idt_B']
+        self.loss_names = ['D_A', 'G_A', 'cycle_A', 'identity_A', 'D_B', 'G_B', 'cycle_B', 'identity_B']
 
         # specify the images you want to save/display.
         visual_names_A = ['real_A', 'fake_B', 'rec_A', 'idt_B']
