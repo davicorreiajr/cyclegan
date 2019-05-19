@@ -69,7 +69,7 @@ if __name__ == '__main__':
         isTrain=False,
         load_size=256,
         n_layers_D=3,
-        name='bleus_simple',
+        name='cyclegan_simple',
         ndf=64,
         ngf=64,
         no_flip=True,
