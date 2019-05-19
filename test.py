@@ -79,6 +79,7 @@ if __name__ == '__main__':
         output_nc=3,
         preprocess='resize_and_crop',
         results_dir='./results',
+        serial_batches=True,
         use_dropout=False,
         verbose=False,
     )

@@ -106,6 +106,7 @@ if __name__ == '__main__':
         pool_size=50,
         preprocess='resize_and_crop',
         print_freq=1,
+        serial_batches=False,
         use_dropout=False,
         verbose=True,
     )
