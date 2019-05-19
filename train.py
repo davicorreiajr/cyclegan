@@ -1,6 +1,7 @@
 import time
 from data.custom_dataset_data_loader import CustomDatasetDataLoader
 from models.cycle_gan_model import CycleGANModel
+from models.cycle_gan_simplified_model import CycleGANSimplifiedModel
 from util.object import Object
 
 
@@ -32,7 +33,8 @@ def run(options_raw):
     dataset_size = len(dataset)
     print('The number of training images = %d' % dataset_size)
 
-    model = CycleGANModel(options)
+    # model = CycleGANModel(options)
+    model = CycleGANSimplifiedModel(options)
     print("model [%s] was created" % type(model).__name__)
 
     model.setup(options)
@@ -91,19 +93,19 @@ if __name__ == '__main__':
         load_size=286,
         lr=0.0002,
         lr_policy='linear',
-        max_image_iterations=6500,
-        name='bleus',
+        max_image_iterations=10,
+        name='bleus_simple',
         ndf=64,
         ngf=64,
-        niter=10,
-        niter_decay=10,
+        niter=1,
+        niter_decay=0,
         no_flip=False,
         norm='instance',
         num_threads=4,
         output_nc=3,
         pool_size=50,
         preprocess='resize_and_crop',
-        print_freq=100,
+        print_freq=1,
         use_dropout=False,
         verbose=True,
     )
