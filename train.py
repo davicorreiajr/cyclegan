@@ -33,8 +33,8 @@ def run(options_raw):
     dataset_size = len(dataset)
     print('The number of training images = %d' % dataset_size)
 
-    # model = CycleGANModel(options)
-    model = CycleGANSimplifiedModel(options)
+    model = CycleGANModel(options)
+    # model = CycleGANSimplifiedModel(options)
     print("model [%s] was created" % type(model).__name__)
 
     model.setup(options)
