@@ -183,8 +183,8 @@ def define_generator_simplified(input_nc, output_nc, ngf, init_type='normal',
         transformer.append(ResnetGeneratorBlockSimplified(ngf * 4))
 
     decoder = [
-        general_deconv_layer(ngf * 4, ngf * 2),
-        general_deconv_layer(ngf * 2, ngf),
+        general_deconv_layer(ngf * 4, ngf * 2, padding=1, output_padding=1),
+        general_deconv_layer(ngf * 2, ngf, padding=1, output_padding=1),
         general_conv_layer(ngf, output_nc, kernel_size=7, stride=1)
     ]
 
@@ -227,7 +227,7 @@ def general_conv_layer(in_channels, out_channels, kernel_size=3, stride=2, paddi
     )
 
 
-def general_deconv_layer(in_channels, out_channels, kernel_size=3, stride=2, padding=0):
+def general_deconv_layer(in_channels, out_channels, kernel_size=3, stride=2, padding=0, output_padding=1,):
     return nn.ConvTranspose2d(
         in_channels=in_channels,
         out_channels=out_channels,
