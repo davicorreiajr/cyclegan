@@ -158,6 +158,105 @@ def define_D(input_nc, ndf, norm='batch', init_type='normal', init_gain=0.02, gp
     return init_net(net, init_type, init_gain, gpu_ids)
 
 
+def define_generator_simplified(input_nc, output_nc, ngf, init_type='normal',
+                                init_gain=0.02, gpu_ids=[], n_blocks=9):
+    """Create a simplified generator
+
+    Parameters:
+        input_nc (int) -- the number of channels in input images
+        output_nc (int) -- the number of channels in output images
+        ngf (int) -- the number of filters in the last conv layer
+        init_type (str)    -- the name of our initialization method.
+        init_gain (float)  -- scaling factor for normal, xavier and orthogonal.
+        gpu_ids (int list) -- which GPUs the network runs on: e.g., 0,1,2
+
+    Returns a generator
+    """
+    encoder = [
+        general_conv_layer(input_nc, ngf, kernel_size=7, stride=1),
+        general_conv_layer(ngf, ngf * 2),
+        general_conv_layer(ngf * 2, ngf * 4),
+    ]
+
+    transformer = []
+    for i in range(n_blocks):
+        transformer.append(ResnetGeneratorBlockSimplified(ngf * 4))
+
+    decoder = [
+        general_deconv_layer(ngf * 4, ngf * 2),
+        general_deconv_layer(ngf * 2, ngf),
+        general_conv_layer(ngf, output_nc, kernel_size=7, stride=1)
+    ]
+
+    net = nn.Sequential(*encoder, *transformer, *decoder)
+
+    return init_net(net, init_type, init_gain, gpu_ids)
+
+
+def define_discriminator_simplified(input_nc, ndf, init_type='normal',
+                                    init_gain=0.02, gpu_ids=[]):
+    """Create a simplified discriminator
+
+    Parameters:
+        input_nc (int)     -- the number of channels in input images
+        ndf (int)          -- the number of filters in the first conv layer
+        init_type (str)    -- the name of the initialization method.
+        init_gain (float)  -- scaling factor for normal, xavier and orthogonal.
+        gpu_ids (int list) -- which GPUs the network runs on: e.g., 0,1,2
+
+    Returns a discriminator
+    """
+    net = nn.Sequential(
+        general_conv_layer(input_nc, ndf, kernel_size=4),
+        general_conv_layer(ndf, ndf * 2, kernel_size=4),
+        general_conv_layer(ndf * 2, ndf * 4, kernel_size=4),
+        general_conv_layer(ndf * 4, ndf * 8, kernel_size=4),
+        general_conv_layer(ndf * 8, 1, kernel_size=4, stride=1),
+    )
+
+    return init_net(net, init_type, init_gain, gpu_ids)
+
+
+def general_conv_layer(in_channels, out_channels, kernel_size=3, stride=2, padding=0):
+    return nn.Conv2d(
+        in_channels=in_channels,
+        out_channels=out_channels,
+        kernel_size=kernel_size,
+        stride=stride,
+        padding=padding,
+    )
+
+
+def general_deconv_layer(in_channels, out_channels, kernel_size=3, stride=2, padding=0):
+    return nn.ConvTranspose2d(
+        in_channels=in_channels,
+        out_channels=out_channels,
+        kernel_size=kernel_size,
+        stride=stride,
+        padding=padding,
+    )
+
+
+def get_gan_loss():
+    return nn.MSELoss()
+
+
+class ResnetGeneratorBlockSimplified(nn.Module):
+    """Define a Resnet block simplified"""
+
+    def __init__(self, features):
+        super(ResnetGeneratorBlockSimplified, self).__init__()
+        self.conv_block = nn.Sequential(
+            general_conv_layer(features, features, stride=1),
+            general_conv_layer(features, features, stride=1),
+        )
+
+    def forward(self, x):
+        """Forward function (with skip connections)"""
+        out = x + self.conv_block(x)
+        return out
+
+
 ##############################################################################
 # Classes
 ##############################################################################
