@@ -247,8 +247,8 @@ class ResnetGeneratorBlockSimplified(nn.Module):
     def __init__(self, features):
         super(ResnetGeneratorBlockSimplified, self).__init__()
         self.conv_block = nn.Sequential(
-            general_conv_layer(features, features, stride=1),
-            general_conv_layer(features, features, stride=1),
+            general_conv_layer(features, features, stride=1, padding=1),
+            general_conv_layer(features, features, stride=1, padding=1),
         )
 
     def forward(self, x):
